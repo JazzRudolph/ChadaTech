@@ -22,6 +22,25 @@ int main()
     int userMenu; // This will store the users menu choices
     int userInput; // This will store the users time input
 
-    
+    int time(int hours, minutes, seconds); // This will store the users time input
+    int clock1() {
+        cout << "12-Hour Clock" << endl;
+        // This will display the 12-hour clock
+
+    }
+
+    int clock2() {
+        cout << "24-Hour Clock" << endl;
+        // This will display the 24-hour clock
+    }
+
+    int userMenu(int userInput) { // This will display the users menu choices
+        cout << "1-Add One Hour" << endl;
+        cout << "2-Add One Minute" << endl;
+        cout << "3-Add One Second" << endl;
+        cout << "4-Exit Program" << endl;
+        cin >> userMenu;
+        return userMenu;
+    }
 
 }
