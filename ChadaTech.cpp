@@ -13,7 +13,6 @@ using namespace std;
 int main() 
 {
     
-    char colon; // This adds the : between the time values
     int clock12; // This will store the 12hr clock
     int clock24; // This will store the 24hr clock
     int userMenu; // This will store the users menu choices
@@ -23,9 +22,9 @@ int main()
     int hour = 0; // This will store the hour value
     int minute = 0; // This will store the minute value
     int second = 0; // This will store the second value
-    int ampm; // This will store the AM or PM values
-
-
+    char ampm; // This will store the AM or PM values
+    char colon = ':'; // This will set the colon to :
+    char emptychar = ' '; // This will set the emptychar to a space
 
 
     while (hour < 1 || hour > 12) { // This will store the users time input
@@ -43,6 +42,13 @@ int main()
         cin >> second;
     }
 
+    while (ampm != 'A' && ampm != 'P' && ampm != 'a' && ampm != 'p') {
+        cout << "Enter AM or PM (a/p): ";
+        cin >> ampm;
+    }
+    
+    int clock12 (hour << colon << minute << colon << second); // This will display the 12hr clock
+    int clock24 (hour << colon << minute << colon << second); // This will display the 24hr clock
+    
     return 0;
-
 }
