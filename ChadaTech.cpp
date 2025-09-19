@@ -14,5 +14,14 @@ iostream
 using namespace std;
 int main() 
 {
+    int hours, minutes, seconds; // This will store the time values
+    char colon; // This adds the : between the time values
+    int clock12; // This will store the 12hr clock
+    int clock24; // This will store the 24hr clock
+    int ampm; // This will store the AM or PM values
+    int userMenu; // This will store the users menu choices
+    int userInput; // This will store the users time input
+
     
+
 }
