@@ -12,7 +12,7 @@ This project will simulate two clocks that will meet the international standard 
 using namespace std;
 
 void clock12(int hour, int minute, int second, char ampm); // This will display 12hrclock
-void clock24(int hour, int minute, int second); // This will display 24hrclock
+void clock24(int hour, int minute, int second, char ampm); // This will display 24hrclock
 
 
 int main() 
@@ -23,7 +23,7 @@ int main()
     int hour = 0; // This will store the hour value
     int minute = 0; // This will store the minute value
     int second = 0; // This will store the second value
-    char ampm; // This will store the AM or PM values
+    char ampm = ' '; // This will store the AM or PM values
 
 
 
@@ -42,30 +42,52 @@ int main()
         cin >> second;
     }
 
-    while (ampm != 'A' && ampm != 'P' && ampm != 'a' && ampm != 'p') {
+    while (ampm != 'A' && ampm != 'P' && ampm != 'a' && ampm != 'p') { // This will store the users time input
         cout << "Enter AM or PM (a/p): ";
         cin >> ampm;
     }
 
     clock12(hour, minute, second, ampm); // This will call the 12hr clock function
-    clock24(hour, minute, second); // This will call the 24hr clock function
+    clock24(hour, minute, second, ampm); // This will call the 24hr clock function
     
     return 0;
 }
 
 
 
-void clock12 (int hour, int minute, int second) { // This will display the 12hr clock
-    if (ampm == 'A' || ampm == 'a') { // This will display the 12hr clock with AM
-        cout << "12-Hour Clock" << hour << ':' << minute << ':' << second << " AM" << endl;
-    } else if(ampm == 'P' || ampm == 'p') { // this will display the 12hr clock with PM
-        cout << "12-Hour Clock: " << hour << ':' << minute << ':' << second << " PM" << endl;
+void clock12 (int hour, int minute, int second, char ampm) { // This will display the 12hr clock
+    cout << "**************************" << endl;
+    cout << "* 12-Hour Clock      *" << endl;
+    cout << "* *" << endl;
+    cout << "* " << setfill('0') << setw(2) << hour << ":" << setfill('0') << setw(2) << minute << ":" << setfill('0') << setw(2) << second << " ";
 
+    if (ampm == 'A' || ampm == 'a') { // This will display the 12hr clock with AM
+        cout << "AM" << "       *" << endl;
+
+    } else if(ampm == 'P' || ampm == 'p') { // this will display the 12hr clock with PM
+        cout << "PM" << "       *" << endl;
     }
+    cout << "**************************" << endl;
 }
     
 
-void clock24 (int hour, int minute, int second) { // This will display the 24hr clock
-  cout << "24-Hour Clock" << hour << ':' << minute << ':' << second << endl;
-}
+void clock24 (int hour, int minute, int second, char ampm) { // This will display the 24hr clock
+        int h24 = hour; // This will store the converted 24-hour value
 
+    
+    if ((ampm == 'P' || ampm == 'p') && hour != 12) { // Convert PM hours to 24-hour format (e.g., 3 PM becomes 15)
+        h24 = hour + 12;
+    }
+
+
+    else if ((ampm == 'A' || ampm == 'a') && hour == 12) { // Convert 12 AM to 00 in 24-hour format
+        h24 = 0;
+    }
+    
+    cout << "**************************" << endl;
+    cout << "* 24-Hour Clock      *" << endl;
+    cout << "* *" << endl;
+    cout << "* " << setfill('0') << setw(2) << h24 << ":" << setfill('0') << setw(2) << minute << ":" << setfill('0') << setw(2) << second << "        *" << endl;
+    cout << "**************************" << endl;
+}
+// End of program
