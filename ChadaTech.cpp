@@ -10,11 +10,16 @@ This project will simulate two clocks that will meet the international standard 
 #include <iomanip>
 #include <string>
 using namespace std;
+
+void clock12 (int hour, int minute, int second, char ampm); // This will display 12hrclock
+
+
+void clock24 (int hour, int minute, int second); // This will display 24hr clock
+
+
 int main() 
 {
     
-    int clock12; // This will store the 12hr clock
-    int clock24; // This will store the 24hr clock
     int userMenu; // This will store the users menu choices
     int userInput; // This will store the users time input
 
@@ -47,8 +52,22 @@ int main()
         cin >> ampm;
     }
     
-    int clock12 (hour << colon << minute << colon << second); // This will display the 12hr clock
-    int clock24 (hour << colon << minute << colon << second); // This will display the 24hr clock
-    
     return 0;
 }
+
+
+
+void clock12 (int hour, int minute, int second) { // This will display the 12hr clock
+    if (ampm == 'A' || ampm == 'a') { // This will display the 12hr clock with AM
+        cout << "12-Hour Clock" << hour << colon << minute << colon << second << emptychar << "AM" << endl;
+    } else if(ampm == 'P' || ampm == 'p') { // this will display the 12hr clock with PM
+        cout << "12-Hour Clock: " << hour << colon << minute << colon << second << emptychar << "PM" << endl;
+
+    }
+}
+    
+
+void clock24 (int hour, int minute, int second) { // This will display the 24hr clock
+  cout << "24-Hour Clock" << hour << colon << minute << colon << second << endl;
+}
+
